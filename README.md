@@ -10,6 +10,8 @@ Es un Software multiplataforma Cliente-Servidor desarrollado en Java, especialme
 * **GPU:** La GPU es opcional
 * **Sistema Operativo:** Windows 7 o superior, Linux, MacOS
 
+## Instalación 🔧
+
 ### Instalacion de Java: 
 
 Para que PC-CHECK funcione correctamente, primero debe instalar Java en su version 8 o superior, tanto en el PC Servidor como en el PC Cliente. Esta instalacion varia del sistema operativo (En el caso de Linux varia la instalacion dependiendo de la distribucion).
@@ -67,7 +69,7 @@ sudo apt-get install oracle-java8-jdk
 
 Para que el software, tanto en el PC cliente como en el PC servidor funcione correctamente, en la carpeta lib de este repositorio, se encuentran las librerias DLL (Windows) y so (Linux). Estas deben de ser incluidas en el `java.library.path` (Ruta de instalacion en donde instalaste java). Recuerda pegarlas en la carpeta bin dentro de esta ruta. No te saltes este paso, ya que el software no funcionara.
 
-## Ejecución 🔧
+## Ejecución ⚙️
 
 Para ejecutar PC-CHECK solo ejecuta el siguiente comando.
 ### Para PC Servidor
