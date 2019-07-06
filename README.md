@@ -69,6 +69,15 @@ sudo apt-get install oracle-java8-jdk
 
 Para que el software, tanto en el PC cliente como en el PC servidor funcione correctamente, en la carpeta lib de este repositorio, se encuentran las librerias DLL (Windows) y so (Linux). Estas deben de ser incluidas en el `java.library.path` (Ruta de instalacion en donde instalaste java). Recuerda pegarlas en la carpeta bin dentro de esta ruta. No te saltes este paso, ya que el software no funcionara.
 
+### Para desarrolladores
+
+Si tu solo eres desarrollador, y quieres contribuir con el codigo de PC-CHECK, clona este repositorio mediante GitHub Desktop, o simplemente mediante el siguiente comando, para descargarlo en tu PC y poder trabajr comodamente:
+
+```
+git clone git://github.com/Garnica1999/PCCheck.git PC-CHECK
+```
+Posteriormente, puedes editar este proyecto utilizando el entorno de desarrollo para Java [NetBeans](https://netbeans.org/), recomendamos la version 8.2 o superior. Con este IDE podras manipular el codigo tanto del proyecto para PC Servidor como para PC Cliente.
+
 ## Ejecución ⚙️
 
 Para ejecutar PC-CHECK solo ejecuta el siguiente comando.
@@ -111,6 +120,8 @@ RAM{total=16216, used=7262666752, free=9737465856, porcentFree=57.27876411633224
 * [Java](https://www.java.com/es/) - Lenguaje de Programacion
 * [Maven](https://maven.apache.org/) - Manejador de dependencias
 * [NetBeans](https://netbeans.org/) - Entorno de Desarrollo
+* [Sigar API](https://github.com/hyperic/sigar) - API para obtener informacion del sistema
+* [JSensor](https://github.com/profesorfalken/jSensors) - Monitorizacion de todos los sensores de hardware de una PC
 
 ## Contribuyendo 🖇️
 
@@ -125,8 +136,6 @@ Puedes encontrar mucho más de cómo utilizar este proyecto en nuestra [Wiki](ht
 Usamos [SemVer](http://semver.org/) para el versionado. Para todas las versiones disponibles, mira los [tags en este repositorio](https://github.com/tu/proyecto/tags).
 
 ## Autores ✒️
-
-_Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
 
 * **Carlos Garnica** - *Trabajo Inicial* - [Garnica1999](https://github.com/garnica1999)
 
