@@ -119,7 +119,7 @@ public class Core implements Serializable{
     public String toString() {
         String cad = "";
         cad = cad + "\tCore Id: " + this.id + "\n";
-        cad = cad + "\tUse: " + this.use + "%\n";
+        cad = cad + "\tUse: " + this.use * 100 + "%\n";
         cad = cad + "\tTemperature Core " + this.id + ": " + this.temperature + " C\n";
         return cad;
     }

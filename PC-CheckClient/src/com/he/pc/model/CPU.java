@@ -248,7 +248,7 @@ public class CPU implements Serializable{
         String cad = "__________________________________\n";
         cad = cad + "Processor : " + this.vendor + "-" + this.model + "\n";
         cad = cad + "Frecuency: " + this.frecuency + " Hz" + "\n";
-        cad = cad + "Use: " + this.use + "%" + "\n";
+        cad = cad + "Use: " + this.use * 100 + "%" + "\n";
         cad = cad + "Physic Cores: " + this.coresNumber + "\n";
         cad = cad + "Logic Cores: " + this.totalCores + "\n";
         cad = cad + "Package Temperature: " + this.temperature + " C\n";
