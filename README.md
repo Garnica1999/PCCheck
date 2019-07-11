@@ -124,7 +124,7 @@ Al ejecutarlo empezaras a ver informacion tanto del CPU como de la RAM, esa info
 CPU:
 __________________________________
 Processor : GenuineIntel-Intel(R) Core(TM) i5-7400 CPU @ 3.00GHz
-Frecuency: 3000000000 Mhz
+Frecuency: 3000000000 Hz
 Use: 23.765902190773236%
 Physic Cores: 4
 Logic Cores: 4
