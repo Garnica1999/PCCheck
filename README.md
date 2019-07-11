@@ -10,6 +10,14 @@ Es un Software multiplataforma Cliente-Servidor desarrollado en Java, especialme
 * **GPU:** La GPU es opcional
 * **Sistema Operativo:** Windows 7 o superior, Linux, MacOS
 
+## Comenzando
+
+Si quieres probar **PC-CHECK** es muy facil, primero debes descargar el programa PC-CHECK, tanto para el servidor como para el cliente, los links los puedes encontrar a contonuacion:
+* [PC-CHECK Servidor](https://github.com/Garnica1999/PCCheck/blob/master/PC-CheckServer/target/PC-CheckServer-1.0-SNAPSHOT.jar)
+* [PC-CHECK Cliente]()
+
+Para continuar con la instalacion de PC-CHECK, sigue el apartado Instalacion haciendo clic [aqui](https://github.com/Garnica1999/PCCheck#instalaci%C3%B3n-)
+
 ## Instalación 🔧
 
 ### Instalacion de Java: 
@@ -67,7 +75,13 @@ sudo apt-get install oracle-java8-jdk
 ```
 ### Librerias
 
-Para que el software, tanto en el PC cliente como en el PC servidor funcione correctamente, en la carpeta lib de este repositorio, se encuentran las librerias DLL (Windows) y so (Linux). Estas deben de ser incluidas en el `java.library.path` (Ruta de instalacion en donde instalaste java). Recuerda pegarlas en la carpeta bin dentro de esta ruta. No te saltes este paso, ya que el software no funcionara.
+Para que el software, tanto en el PC cliente como en el PC servidor funcione correctamente, en la carpeta lib de este repositorio, se encuentran las librerias DLL (Windows) y so (Linux). 
+* [Windows](https://github.com/Garnica1999/PCCheck/tree/master/lib/windows) - Librerias para Windows
+* [Linux](https://github.com/Garnica1999/PCCheck/tree/master/lib/linux) - Librerias para Linux
+
+Estas deben de ser incluidas en el `java.library.path` (Ruta de instalacion en donde instalaste java). Recuerda pegarlas en la carpeta bin dentro de esta ruta. No te saltes este paso, ya que el software no funcionara. 
+
+Para Windows, debes de copiar todas las librerias **.dll** en la carpeta de instalacion de java y en la ruta `C:\Windows\system32`
 
 ### Para desarrolladores
 
@@ -85,34 +99,61 @@ Para ejecutar PC-CHECK solo ejecuta el siguiente comando.
 ```
 java -jar PC-CheckServer.jar
 ```
-Al ejecutarlo posiblemente no te salga nada. Tranquilo, es normal, ya que el servidor esta esperando a que el cliente se conecte. Para ello ve a la PC donde quieras que se vea la informacion del PC Servidor, instala Java y prepara ese equipo (Lee los puntos anteriores), y posteriormente, funcionara.
-
-Esto se vera reflejado con una impresion de algunos numeros, es normal, esto quiere decir que el pc servidor logro conectarse con el pc cliente correctamente, y esta enviando informacion del hardware al pc cliente satisfactoriamente.
+Al ejecutarlo te mostrara el siguiente mensaje:
+```
+Welcome to PC-CHECK
+Establishing connection with the PC-CHECK client
+```
+Es aqui en donde debes ejecutar en el cliente PC-CHECK con su correspondiente binario, el tutorial lo puedes mirar haciendo clic [aqui](https://github.com/Garnica1999/PCCheck#para-pc-cliente)
 
 Un ejemplo de la salida del servidor podria ser el siguiente:
 ```
-______________________________
-16216
-9721516032
-7278616576
-______________________________
-16216
-9721483264
-7278649344
-______________________________
+Welcome to PC-CHECK
+Establishing connection with the PC-CHECK client
+Successfully established connection
+Starting... It may take several seconds
 ```
+En futuras versiones mejoraremos las impresiones y el Log para el servidor.
+
 ### Para PC Cliente
 ```
 java -jar PC-CheckClient.jar
 ```
 Al ejecutarlo empezaras a ver informacion tanto del CPU como de la RAM, esa informacion es del PC Servidor, y esto significa que el software esta funcionando correctamente. Un ejemplo de la salida del programa puede ser:
 ```
-CPU{model=Core(TM) i5-7400 CPU @ 3.00GHz, vendor=Intel, cores=4, totalCores=4, frecuency=3000, use=10.824230387288978}
-RAM{total=16216, used=7260880896, free=9739251712, porcentFree=57.289269069682774, porcentUsed=42.710730930317226}
-CPU{model=Core(TM) i5-7400 CPU @ 3.00GHz, vendor=Intel, cores=4, totalCores=4, frecuency=3000, use=17.81637717121588}
-RAM{total=16216, used=7262687232, free=9737445376, porcentFree=57.278643646683726, porcentUsed=42.721356353316274}
-CPU{model=Core(TM) i5-7400 CPU @ 3.00GHz, vendor=Intel, cores=4, totalCores=4, frecuency=3000, use=12.581128307538691}
-RAM{total=16216, used=7262666752, free=9737465856, porcentFree=57.27876411633224, porcentUsed=42.72123588366776}
+CPU:
+__________________________________
+Processor : GenuineIntel-Intel(R) Core(TM) i5-7400 CPU @ 3.00GHz
+Frecuency: 3000000000 Mhz
+Use: 23.765902190773236%
+Physic Cores: 4
+Logic Cores: 4
+Package Temperature: 33.0 C
+Core Information:
+        Core Id: 0
+        Use: 27.293729372937293%
+        Temperature Core 0: 32.0 C
+-----------------------------------
+        Core Id: 1
+        Use: 25.26385224274406%
+        Temperature Core 1: 33.0 C
+-----------------------------------
+        Core Id: 2
+        Use: 19.591029023746703%
+        Temperature Core 2: 31.0 C
+-----------------------------------
+        Core Id: 3
+        Use: 24.21643022104916%
+        Temperature Core 3: 31.0 C
+-----------------------------------
+
+__________________________________
+RAM:
+Total: 17000132608MB
+Used: 7176564736KB
+Free: 9823567872KB
+Porcent Used: 42.21475738737956%
+Porcent Free: 57.78524261262044%
 ```
 
 ## Construido con 🛠️
@@ -122,6 +163,7 @@ RAM{total=16216, used=7262666752, free=9737465856, porcentFree=57.27876411633224
 * [NetBeans](https://netbeans.org/) - Entorno de Desarrollo
 * [Sigar API](https://github.com/hyperic/sigar) - API para obtener informacion del sistema
 * [JSensor](https://github.com/profesorfalken/jSensors) - Monitorizacion de todos los sensores de hardware de una PC
+* [OSHI](https://github.com/oshi/oshi) - Native Operating System and Hardware Information
 
 ## Contribuyendo 🖇️
 
