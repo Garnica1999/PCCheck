@@ -120,6 +120,8 @@ Posteriormente, puedes editar este proyecto utilizando el entorno de desarrollo 
 
 Para ejecutar PC-CHECK solo ejecuta el siguiente comando.
 ### Para PC Servidor
+
+Ejecutar el siguiente comando en modo administrador:
 ```
 java -jar PC-CheckServer.jar
 ```
