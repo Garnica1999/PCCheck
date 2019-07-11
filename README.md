@@ -164,6 +164,7 @@ Porcent Free: 57.78524261262044%
 * [Sigar API](https://github.com/hyperic/sigar) - API para obtener informacion del sistema
 * [JSensor](https://github.com/profesorfalken/jSensors) - Monitorizacion de todos los sensores de hardware de una PC
 * [OSHI](https://github.com/oshi/oshi) - Native Operating System and Hardware Information
+* [JNA](https://github.com/java-native-access/jna) - Java Native Access
 
 ## Contribuyendo 🖇️
 
