@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import com.he.pc.model.CPU;
 import com.he.pc.model.RAM;
+import com.he.pc.model.Utilities;
 
 /**
  *
@@ -28,16 +29,20 @@ public class Main {
         
         try {
             socket = new Socket("192.168.0.19", 5000);
+            System.out.println("Successfully established connection with server PC-CHECK");
+            System.out.println("Starting... It may take several seconds");
             ois = new ObjectInputStream(socket.getInputStream());
             while(true){
                 this.cpu = (CPU)ois.readObject();
+                Utilities.clear();
+                System.out.println("CPU: ");
                 System.out.println(cpu.toString());
+                
                 this.ram = (RAM) ois.readObject();
+                System.out.println("RAM: ");
                 System.out.println(this.ram.toString());
             }
-        } catch (IOException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
+        } catch (IOException | ClassNotFoundException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
