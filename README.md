@@ -116,8 +116,23 @@ Starting... It may take several seconds
 En futuras versiones mejoraremos las impresiones y el Log para el servidor.
 
 ### Para PC Cliente
+
+Para ejecutar el cliente, primero necesitas la ip del servidor. Esta la puedes obtener ingresando los siguientes comando en el terminal/shell/cmd del pc servidor:
+* **Linux** ifconfig
+* **Windows** ipconfig
+
+El comando de ejecucion es el siguiente:
 ```
-java -jar PC-CheckClient.jar
+java -jar PC-CheckClient.jar <ServerIP> -console
+```
+Los argumentos se describen a continuacion:
+* **ServerIP:** Es la IP del servidor el cual debe de estar ejecutandose la version PC-CHECK en este
+* **-console** Prepara el programa para ejecutarse en modo consola. Por el momento este comando es obligatorio
+
+Un ejemplo del comando para ejecutar el cliente es el siguiente:
+
+```
+java -jar PC-CheckClient.jar 192.168.0.19 -console
 ```
 Al ejecutarlo empezaras a ver informacion tanto del CPU como de la RAM, esa informacion es del PC Servidor, y esto significa que el software esta funcionando correctamente. Un ejemplo de la salida del programa puede ser:
 ```
