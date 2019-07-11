@@ -118,8 +118,8 @@ En futuras versiones mejoraremos las impresiones y el Log para el servidor.
 ### Para PC Cliente
 
 Para ejecutar el cliente, primero necesitas la ip del servidor. Esta la puedes obtener ingresando los siguientes comando en el terminal/shell/cmd del pc servidor:
-* **Linux** ifconfig
-* **Windows** ipconfig
+* **Linux:** ifconfig
+* **Windows:** ipconfig
 
 El comando de ejecucion es el siguiente:
 ```
