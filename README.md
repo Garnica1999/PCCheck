@@ -2,6 +2,30 @@
 
 Es un Software multiplataforma Cliente-Servidor desarrollado en Java, especialmente para vigilar los componentes basicos de Hardware (CPU, RAM, GPU) desde otro PC o dispositivo electronico similar (NUC, Raspberry Pi). Fue creado especialmente para el modding, indicando mediante una pantalla instalada en la PC mostrando el estado del hardware de la maquina objetivo, y enviando esta informacion a un dispositivo ajeno al pc servidor.
 
+## Contenido
+* [Caracteristicas](https://github.com/Garnica1999/PCCheck#caracteristicas)
+* [Pre-requisitos](https://github.com/Garnica1999/PCCheck#pre-requisitos-)
+* [Comenzando](https://github.com/Garnica1999/PCCheck#comenzando)
+* [Instalacion](https://github.com/Garnica1999/PCCheck#instalaci%C3%B3n-)
+* [Ejecucion](https://github.com/Garnica1999/PCCheck#ejecuci%C3%B3n-%EF%B8%8F)
+* [Construido con](https://github.com/Garnica1999/PCCheck#construido-con-%EF%B8%8F)
+* [Contribuyendo](https://github.com/Garnica1999/PCCheck#contribuyendo-%EF%B8%8F)
+* [Wiki](https://github.com/Garnica1999/PCCheck#wiki-)
+* [Versionado](https://github.com/Garnica1999/PCCheck#versionado-)
+* [Autores](https://github.com/Garnica1999/PCCheck#autores-%EF%B8%8F)
+* [Licencia](https://github.com/Garnica1999/PCCheck#licencia-)
+* [Expresiones de Gratitud](https://github.com/Garnica1999/PCCheck#expresiones-de-gratitud-)
+
+
+## Caracteristicas
+* Software ejecutable en sistemas operativos con escritorio o sin el (Para servidores)
+* Bajo consumo de los recursos del PC servidor y cliente al ejecutarse el software
+* Proporciona informacion completa del procesador y de la ram
+* Proporciona informacion de las tarjetas graficas instaladas en el PC servidor (Proximamente)
+* Precision al dar informacion relacionada con temperaturas, uso e informacion del harware basico del PC
+* Diseñado mod de PCs con pantalla en el gabinete
+* Disedo para Raspberry Pi con pantallas de gabinetes coenctadas a este(Falta probar)
+
 ## Pre-requisitos 📋
 
 * **CPU:** Pentium IV o superior
@@ -187,7 +211,7 @@ Por favor lee el CONTRIBUTING.md para detalles de nuestro código de conducta, y
 
 ## Wiki 📖
 
-Puedes encontrar mucho más de cómo utilizar este proyecto en nuestra [Wiki](https://github.com/tu/proyecto/wiki)
+Puedes encontrar mucho más de cómo utilizar este proyecto en nuestra [Wiki](https://github.com/Garnica1999/PCCheck/wiki)
 
 ## Versionado 📌
 
