@@ -123,7 +123,7 @@ Para ejecutar PC-CHECK solo ejecuta el siguiente comando.
 
 Ejecutar el siguiente comando en modo administrador:
 ```
-java -jar PC-CheckServer.jar
+java -jar PC-CheckServer-1.0-SNAPSHOT.jar
 ```
 Al ejecutarlo te mostrara el siguiente mensaje:
 ```
