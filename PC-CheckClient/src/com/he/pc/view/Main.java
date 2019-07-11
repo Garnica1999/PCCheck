@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import com.he.pc.model.CPU;
 import com.he.pc.model.RAM;
 import com.he.pc.model.Utilities;
+import java.io.EOFException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -46,7 +47,9 @@ public class Main {
             }
         } catch (IOException | ClassNotFoundException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
+        }catch (Exception e){
+        
+        }finally {
             try {
                 if (socket != null) {
                     socket.close();
