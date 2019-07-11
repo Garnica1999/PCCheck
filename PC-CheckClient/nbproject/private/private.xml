@@ -3,7 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Carlos/Documents/NetBeansProjects/PCRevisionCliente/src/com/he/pc/view/Main.java</file>
+            <file>file:/C:/Users/Carlos/Documents/NetBeansProjects/PC-CheckClient/src/com/he/pc/model/RAM.java</file>
+            <file>file:/C:/Users/Carlos/Documents/NetBeansProjects/PC-CheckClient/src/com/he/pc/model/CPU.java</file>
+            <file>file:/C:/Users/Carlos/Documents/NetBeansProjects/PC-CheckClient/src/com/he/pc/model/Core.java</file>
         </group>
     </open-files>
 </project-private>
