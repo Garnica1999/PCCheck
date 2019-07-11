@@ -13,8 +13,8 @@ Es un Software multiplataforma Cliente-Servidor desarrollado en Java, especialme
 ## Comenzando
 
 Si quieres probar **PC-CHECK** es muy facil, primero debes descargar el programa PC-CHECK, tanto para el servidor como para el cliente, los links los puedes encontrar a contonuacion:
-* [PC-CHECK Servidor](https://github.com/Garnica1999/PCCheck/blob/master/PC-CheckServer/target/PC-CheckServer-1.0-SNAPSHOT.jar)
-* [PC-CHECK Cliente]()
+* [PC-CHECK Servidor](https://github.com/Garnica1999/PCCheck/blob/master/PC-CheckServer/target/PC-CheckServer-1.0-SNAPSHOT.jar) - Porgrama fimal para el servidor
+* [PC-CHECK Cliente](https://github.com/Garnica1999/PCCheck/blob/master/PC-CheckClient/dist/PC-CheckClient.jar) - Software final para el PC cliente
 
 Para continuar con la instalacion de PC-CHECK, sigue el apartado Instalacion haciendo clic [aqui](https://github.com/Garnica1999/PCCheck#instalaci%C3%B3n-)
 
@@ -176,13 +176,13 @@ Puedes encontrar mucho más de cómo utilizar este proyecto en nuestra [Wiki](ht
 
 ## Versionado 📌
 
-Usamos [SemVer](http://semver.org/) para el versionado. Para todas las versiones disponibles, mira los [tags en este repositorio](https://github.com/tu/proyecto/tags).
+Usamos [SemVer](http://semver.org/) para el versionado. Para todas las versiones disponibles, mira los [tags en este repositorio](https://github.com/Garnica1999/PCCheck/tags).
 
 ## Autores ✒️
 
 * **Carlos Garnica** - *Trabajo Inicial* - [Garnica1999](https://github.com/garnica1999)
 
-También puedes mirar la lista de todos los [contribuyentes](https://github.com/your/project/contributors) quíenes han participado en este proyecto. 
+También puedes mirar la lista de todos los [contribuyentes](https://github.com/Garnica1999/PCCheck/contributors) quíenes han participado en este proyecto. 
 
 ## Licencia 📄
 
