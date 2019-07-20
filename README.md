@@ -28,11 +28,23 @@ Es un Software multiplataforma Cliente-Servidor desarrollado en Java, especialme
 
 ## Pre-requisitos 📋
 
+### PC-CHECK Servidor
+
 * **CPU:** Pentium IV o superior
 * **RAM:** 512 MB o superior
-* **RED:** Conexion cableada o inalambrica estable. Ambos equipos (PC Servidor y PC Cliente) deben de estar en la misma red
+* **RED:** Conexion cableada o inalambrica estable.
 * **GPU:** La GPU es opcional
 * **Sistema Operativo:** Windows 7 o superior, Linux, MacOS
+
+### PC-CHECK Cliente
+
+* **CPU:** Pentium IV o superior
+* **RAM:** 256 MB o superior
+* **RED:** Conexion cableada o inalambrica estable.
+* **GPU:** La GPU es opcional
+* **Sistema Operativo:** Windows 7 o superior, Linux, MacOS
+
+**NOTA:** Ambos equipos (PC Servidor y PC Cliente) deben de estar en la misma red
 
 ## Comenzando
 
