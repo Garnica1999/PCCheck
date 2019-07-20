@@ -11,9 +11,9 @@ import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import com.he.pc.model.CPU;
+import com.he.pc.model.GPU;
 import com.he.pc.model.RAM;
 import com.he.pc.model.Utilities;
-import java.io.EOFException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -25,6 +25,7 @@ public class Main {
 
     private CPU cpu;
     private RAM ram;
+    private GPU[] gpus;
     private Socket socket = null;
     private ObjectInputStream ois = null;
     
@@ -44,11 +45,16 @@ public class Main {
                 this.ram = (RAM) ois.readObject();
                 System.out.println("RAM: ");
                 System.out.println(this.ram.toString());
+                
+                this.gpus = (GPU[]) ois.readObject();
+                System.out.println("GPUs: ");
+                for(int i = 0; i < this.gpus.length; i++){
+                    System.out.println("GPU " + i + ": ");
+                    System.out.println(this.gpus[i].toString());
+                }
             }
         } catch (IOException | ClassNotFoundException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (Exception e){
-        
         }finally {
             try {
                 if (socket != null) {
