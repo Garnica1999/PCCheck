@@ -3,24 +3,30 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.he.pc.model;
+package com.he.pc.controller.logic;
 
 import com.he.pc.controller.logic.hardware.oshi.hardware.CentralProcessor;
+import com.he.pc.controller.logic.hardware.oshi.hardware.HardwareAbstractionLayer;
 import com.he.pc.controller.logic.hardware.oshi.util.Util;
+import com.he.pc.model.CPU;
+import com.he.pc.model.Core;
 import com.profesorfalken.jsensors.JSensors;
 import com.profesorfalken.jsensors.model.components.Components;
 import com.profesorfalken.jsensors.model.components.Cpu;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.hyperic.sigar.CpuPerc;
 import org.hyperic.sigar.Sigar;
 import org.hyperic.sigar.SigarException;
+import org.slf4j.LoggerFactory;
 
 /**
  * Clase que se utiliza paera obtener informacion del procesador mas facilmente
  * @author Garnica1999
  */
-public class CPUtilities {
+public class CpuController {
     /**
      * Lista que guarda las temperaturas del procesador. El ultimo
      * elemento de la lista es la temperatura del package del procesador, el resto 
@@ -29,10 +35,29 @@ public class CPUtilities {
     private ArrayList<Double> tempsCpu;
     
     /**
-     * Constructor principal, inicializa la lista de temperaturas del CPU
+     * Campo para gardar los datos de la clase Sigar
      */
-    public CPUtilities() {
+    private final Sigar sigar;
+    
+    /**
+     * Campo para obtener la informacion del procesador
+     */
+    private CentralProcessor processor;
+    
+    /**
+     * Logger
+     */
+    private org.slf4j.Logger log;
+    
+    /**
+     * Constructor principal, inicializa la lista de temperaturas del CPU
+     * @param hal Abstraccion del hardware
+     */
+    public CpuController(HardwareAbstractionLayer hal) {
+        this.loadLogger();
+        this.sigar = new Sigar();
         this.tempsCpu = new ArrayList<>();
+        this.processor = hal.getProcessor();
     }
     
     /**
@@ -40,8 +65,10 @@ public class CPUtilities {
      * @param processor <p>objeto de la clase CentralProcessor, contiene la 
      * informacion del procesador</p>
      * @return Arreglo con el uso normalizado de cada nucleo
+     * @deprecated No se utiliza por no dar los datos de uso del cpu correctamente
      */
-    public static double[] getCpuCoresUse(CentralProcessor processor) {
+    @Deprecated
+    public double[] getCpuCoresUse(CentralProcessor processor) {
         
         long[][] prevProcTicks = processor.getProcessorCpuLoadTicks();
 
@@ -61,7 +88,7 @@ public class CPUtilities {
      * informacion del procesador</p>
      * @return El nombre del procesador. Por ejemplo Intel(R) Core(TM) i5-7400 CPU @ 3.00GHz
      */
-    public static String getCpuName(CentralProcessor processor){
+    public String getCpuName(CentralProcessor processor){
         return processor.getName();
     }
     /**
@@ -70,7 +97,7 @@ public class CPUtilities {
      * informacion del procesador</p>
      * @return El fabricante del procesador. Por ejemplo: GenuineIntel
      */
-    public static String getCpuVendor(CentralProcessor processor){
+    public String getCpuVendor(CentralProcessor processor){
         return processor.getVendor();
     }
     /**
@@ -79,7 +106,7 @@ public class CPUtilities {
      * informacion del procesador</p>
      * @return La frecuencia del procesador (En Hz)
      */
-    public static long getCpuFrecuency(CentralProcessor processor){
+    public long getCpuFrecuency(CentralProcessor processor){
         return processor.getMaxFreq();
     }
     /**
@@ -88,7 +115,7 @@ public class CPUtilities {
      * informacion del procesador</p>
      * @return Cantidad de nucleos fisicos del procesador
      */
-    public static int getCpuCoresCount(CentralProcessor processor){
+    public int getCpuCoresCount(CentralProcessor processor){
         return processor.getPhysicalProcessorCount();
     }
     /**
@@ -101,7 +128,7 @@ public class CPUtilities {
      * informacion del procesador</p>
      * @return Cantidad de nucleos logicos del procesador instalado en el equipo
      */
-    public static int getCpuLogicalCoresCount(CentralProcessor processor){
+    public int getCpuLogicalCoresCount(CentralProcessor processor){
         return processor.getLogicalProcessorCount();
     }
     /**
@@ -110,7 +137,7 @@ public class CPUtilities {
      * informacion del procesador</p>
      * @return Uso del procesador, numero entre 0 a 1
      */
-    public static double getCpuUseNorm(CentralProcessor processor){
+    public double getCpuUseNorm(CentralProcessor processor){
         return processor.getSystemCpuLoad();
     }
     /**
@@ -119,7 +146,7 @@ public class CPUtilities {
      * @throws SigarException Sigar API ejecutara esta excepcion en caso de tener 
      * un error de lectura del hardware
      */
-    public static double getCpuUse() throws SigarException{
+    public double getCpuUse() throws SigarException{
         Sigar s = new Sigar();
         CpuPerc cpuUse = s.getCpuPerc();
         return cpuUse.getCombined() * 100;
@@ -133,7 +160,7 @@ public class CPUtilities {
      * la informacion de hardware, debido al diseño de la API Jsensor</p>
      */
     @Deprecated
-    public static double loadCpuTemp() {
+    public double loadCpuTemp() {
         Components components = JSensors.get.components();
         List<Cpu> cpus = components.cpus;
         if(cpus != null){
@@ -161,7 +188,7 @@ public class CPUtilities {
      * la informacion de hardware, debido al diseño de la API Jsensor</p>
      */
     @Deprecated
-    public static double loadCpuCoreTemp(int core) {
+    public double loadCpuCoreTemp(int core) {
         Components components = JSensors.get.components();
         List<Cpu> cpus = components.cpus;
         if(cpus != null){
@@ -183,9 +210,9 @@ public class CPUtilities {
      * index de la lista es la temperatura del package del procesador, el resto 
      * es la temeperatura de los nucleos</p>
      */
-    private void loadCpuTemps(){
+    private void loadCpuTemps(Components components){
         this.tempsCpu.clear();
-        Components components = JSensors.get.components();
+        
         List<Cpu> cpus = components.cpus;
         if(cpus != null){
             for(Cpu cpu : cpus){
@@ -203,14 +230,78 @@ public class CPUtilities {
      * @param core <p>Temperatura (Celcius) de un nucleo del procesador</p>
      * @return Temperatura (en celcius) de un nucleo del procesador
      */
-    public double getTempCpuCore(int core){
-        return this.tempsCpu.get(core);
+    public Double getTempCpuCore(int core){
+        try{
+            return this.tempsCpu.get(core);
+        }catch(IndexOutOfBoundsException ex){
+            Logger.getLogger(PC.class.getName()).log(Level.SEVERE, null, ex);
+            log.error(ex.toString());
+            System.err.println("ERROR GRAVE: " + ex.toString());
+            return null;
+        }
     }
     /**
      * <p>Actualiza el listado con nuevas temperaturas que actualmente tenga el
      * procesador</p>
+     * @param components the param
      */
-    public void updateTemperatures(){
-        this.loadCpuTemps();
+    public void updateTemperatures(Components components){
+        log.info("Actualizando temperaturas del procesador");
+        this.loadCpuTemps(components);
+    }
+    
+    /**
+     * <p>Carga la informacion completa del CPU, incluyendo modelos, frencuencias, 
+     * fabricantes, uso del CPU, uso de los cores, cantidad de nucleos logicos y 
+     * fisicos.</p>
+     * @return Objeto de la clase CPU con informacion del procesador
+     */
+    CPU loadCPU() {
+        try {
+            
+            
+            /*Declarar, instanciar e inicializar una lista para guardar la 
+            informacion de los nucleos*/
+            ArrayList<Core> cores = new ArrayList<>();
+            /*
+            Obtener informacion del CPU
+            */
+            String model = this.getCpuName(processor);
+            String vendor = this.getCpuVendor(processor);
+            double cpuUse = this.getCpuUseNorm(processor);
+            long frecuency = this.getCpuFrecuency(processor);
+            int physicalCores = this.getCpuCoresCount(processor);
+            int logicalCores = this.getCpuLogicalCoresCount(processor);
+            CpuPerc[] porcent = this.sigar.getCpuPercList();
+            //Instanciar e inicializar objeto c del CPU
+            CPU c = new CPU(model, vendor, physicalCores, logicalCores, frecuency, cpuUse, this.getTempCpuCore(porcent.length));
+           
+            //Guardar la informacion de todos los nucleos del procesador
+            
+            for(int core = 0; core < porcent.length; core++){
+                //CpuInfo cpu = infos[core];
+                cores.add(new Core(core, porcent[core].getCombined(), this.getTempCpuCore(core)));
+            }
+            //Agregar la lista de nucleos al objeto de la clase CPU
+            c.setCores(cores);
+            return c;
+        } catch (SigarException ex) {
+            Logger.getLogger(PC.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+    /**
+     * Actualiza los datos del procesador
+     */
+    public void updateData(){
+        log.info("Actualizando datos del procesador");
+        this.processor.updateAttributes();
+    }
+    
+    private void loadLogger() {
+        // Options: ERROR > WARN > INFO > DEBUG > TRACE
+        System.setProperty(org.slf4j.impl.SimpleLogger.DEFAULT_LOG_LEVEL_KEY, "INFO");
+        System.setProperty(org.slf4j.impl.SimpleLogger.LOG_FILE_KEY, "System.err");
+        this.log = LoggerFactory.getLogger(GpuController.class);
     }
 }
