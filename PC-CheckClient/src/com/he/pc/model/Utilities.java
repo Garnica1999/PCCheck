@@ -14,14 +14,39 @@ import java.util.logging.Logger;
  * @author Garnica1999
  */
 public class Utilities {
+    public static final String OS = System.getProperty("os.name").toLowerCase();
     /**
      * Limpia la consola de texto anterior
      */
     public static void clear() {
         try {
-            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            if (isWindows()) {
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            } else if (isUnix() || isMac() || isSolaris()) {
+                System.out.print("\033[H\033[2J");
+                System.out.flush();
+            }
         } catch (IOException | InterruptedException ex) {
             Logger.getLogger(Utilities.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    public static boolean isWindows() {
+        return (OS.indexOf("win") >= 0);
+    }
+
+    public static boolean isMac() {
+        return (OS.indexOf("mac") >= 0);
+    }
+
+    public static boolean isUnix() {
+        return (OS.indexOf("nix") >= 0) || (OS.indexOf("nux") >= 0) || (OS.indexOf("aix") > 0);
+    }
+
+    public static boolean isSolaris() {
+
+        return (OS.indexOf("sunos") >= 0);
+
+    }
+
 }
