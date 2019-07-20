@@ -140,18 +140,23 @@ java -jar PC-CheckServer-1.0-SNAPSHOT.jar
 Al ejecutarlo te mostrara el siguiente mensaje:
 ```
 Welcome to PC-CHECK
-Establishing connection with the PC-CHECK client
+[main] INFO com.he.pc.controller.logic.PC - Preparando dispositivos...
+[main] INFO com.he.pc.controller.logic.PC - Dispositivos cargados
+[main] INFO com.he.pc.controller.logic.PC - Establishing connection with the PC-CHECK client
 ```
 Es aqui en donde debes ejecutar en el cliente PC-CHECK con su correspondiente binario, el tutorial lo puedes mirar haciendo clic [aqui](https://github.com/Garnica1999/PCCheck#para-pc-cliente)
 
 Un ejemplo de la salida del servidor podria ser el siguiente:
 ```
 Welcome to PC-CHECK
-Establishing connection with the PC-CHECK client
-Successfully established connection
-Starting... It may take several seconds
+[main] INFO com.he.pc.controller.logic.PC - Preparando dispositivos...
+[main] INFO com.he.pc.controller.logic.PC - Dispositivos cargados
+[main] INFO com.he.pc.controller.logic.PC - Establishing connection with the PC-CHECK client
+[main] INFO com.he.pc.controller.logic.PC - Successfully established connection
+[main] INFO com.he.pc.controller.logic.PC - Starting... It may take several seconds
+[main] INFO com.he.pc.controller.logic.PC - Actualizando dispositivos...
+[main] INFO com.he.pc.controller.logic.PC - Actualizando sensores...
 ```
-En futuras versiones mejoraremos las impresiones y el Log para el servidor.
 
 ### Para PC Cliente
 
