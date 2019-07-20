@@ -162,39 +162,53 @@ java -jar PC-CheckClient.jar 192.168.0.19 -console
 ```
 Al ejecutarlo empezaras a ver informacion tanto del CPU como de la RAM, esa informacion es del PC Servidor, y esto significa que el software esta funcionando correctamente. Un ejemplo de la salida del programa puede ser:
 ```
-CPU:
+CPU: 
 __________________________________
 Processor : GenuineIntel-Intel(R) Core(TM) i5-7400 CPU @ 3.00GHz
 Frecuency: 3000000000 Hz
-Use: 23.765902190773236%
+Use: 35.70470002708287%
 Physic Cores: 4
 Logic Cores: 4
-Package Temperature: 33.0 C
-Core Information:
-        Core Id: 0
-        Use: 27.293729372937293%
-        Temperature Core 0: 32.0 C
+Package Temperature: 34.0 C
+Core Information: 
+	Core Id: 0
+	Use: 39.87774181948939%
+	Temperature Core 0: 34.0 C
 -----------------------------------
-        Core Id: 1
-        Use: 25.26385224274406%
-        Temperature Core 1: 33.0 C
+	Core Id: 1
+	Use: 33.728874505573536%
+	Temperature Core 1: 35.0 C
 -----------------------------------
-        Core Id: 2
-        Use: 19.591029023746703%
-        Temperature Core 2: 31.0 C
+	Core Id: 2
+	Use: 32.02731847591661%
+	Temperature Core 2: 37.0 C
 -----------------------------------
-        Core Id: 3
-        Use: 24.21643022104916%
-        Temperature Core 3: 31.0 C
+	Core Id: 3
+	Use: 37.07299532542251%
+	Temperature Core 3: 34.0 C
 -----------------------------------
 
 __________________________________
-RAM:
+RAM: 
 Total: 17000132608MB
-Used: 7176564736KB
-Free: 9823567872KB
-Porcent Used: 42.21475738737956%
-Porcent Free: 57.78524261262044%
+Used: 9548980224KB
+Free: 7451152384KB
+Porcent Used: 56.17003375318612%
+Porcent Free: 43.82996624681388%
+
+GPUs: 
+GPU 0: 
+	Vendor: NVIDIA
+	Model: NVIDIA GeForce GTX 1070 Ti
+	Temperatures: 
+		33.0 C
+	Loads: 
+		Load GPU Core: 2.0%
+		Load GPU Memory Controller: 2.0%
+		Load GPU Video Engine: 0.0%
+		Load GPU Memory: 11.49993%
+	Fans: 
+		Fan #0: 899.0 rpm
 ```
 
 ## Construido con 🛠️
