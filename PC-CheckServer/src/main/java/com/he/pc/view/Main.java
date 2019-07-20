@@ -6,6 +6,11 @@
 package com.he.pc.view;
 
 import com.he.pc.controller.logic.PC;
+import com.profesorfalken.jsensors.JSensors;
+import com.profesorfalken.jsensors.model.components.Components;
+import com.profesorfalken.jsensors.model.components.Gpu;
+import com.profesorfalken.jsensors.model.sensors.Load;
+import java.util.List;
 
 /**
  * Clase principal
@@ -20,7 +25,6 @@ public class Main {
         System.out.println("Welcome to PC-CHECK");
         //System.out.println(System.getProperty("java.library.path"));
         PC pc = new PC();
-        
     }
 
     
